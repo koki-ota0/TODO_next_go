@@ -4,6 +4,42 @@
 
 このプロジェクトは、Next.jsをフロントエンド、Golangをバックエンドに使用したTODOアプリです。データベースにはPostgreSQLを使用しています。
 
+## 必要なソフトウェア
+
+- [Node.js](https://nodejs.org/)（フロントエンド）
+- [Go](https://golang.org/)（バックエンド）
+- [PostgreSQL](https://www.postgresql.org/)（データベース）
+
+## インストール手順
+
+### PostgreSQLのインストール
+
+1. **PostgreSQLのダウンロード**
+
+   PostgreSQLの公式ウェブサイトからインストーラーをダウンロードします: [PostgreSQL Downloads](https://www.postgresql.org/download/)
+
+2. **インストーラーの実行**
+
+   ダウンロードしたインストーラーを実行し、指示に従ってインストールを進めます。インストール中に、以下の設定を行います:
+   - **パスワードの設定**: デフォルトのスーパーユーザー（postgres）用のパスワードを設定します。
+   - **ポート番号**: デフォルトでポート5432が使用されます。特別な理由がない限り、そのままで問題ありません。
+
+3. **PostgreSQLの確認**
+
+   インストールが完了したら、PostgreSQLサーバーが実行中であることを確認します。
+
+   - **Windows**:
+     ```powershell
+     Get-Service -Name postgresql*
+     ```
+
+   - **Unix系システム（Linux、macOS）**:
+     ```bash
+     sudo service postgresql status
+     ```
+
+データベース名やパスワードは、config/.env ファイルで設定した値を使用します。
+
 ## ディレクトリ構成
 
 - `backend/` - バックエンドのコード
@@ -43,13 +79,14 @@
     cd backend
     go run cmd/server/main.go
     ```
-
+バックエンドは http://localhost:8080 でアクセスできます。
 2. フロントエンドサーバーを起動します。
 
     ```bash
     cd ../frontend
     npm run dev
     ```
+これで、フロントエンドは http://localhost:3000 でアクセスできます。
 
 ## APIエンドポイント
 
